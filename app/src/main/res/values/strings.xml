@@ -5,4 +5,7 @@
     <string name="walking_buddies">Walking Buddies</string>
     <string name="app_logo">app logo</string>
     <string name="pawmble">Pawmble</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="login">Login</string>
 </resources>
