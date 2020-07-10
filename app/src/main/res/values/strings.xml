@@ -8,4 +8,5 @@
     <string name="hint_email">Email</string>
     <string name="hint_password">Password</string>
     <string name="login">Login</string>
+    <string name="let_s_find_you_a_walking_buddy">Let\'s find you a walking buddy!</string>
 </resources>

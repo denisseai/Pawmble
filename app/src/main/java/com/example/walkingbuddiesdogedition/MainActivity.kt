@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onAdapterAboutToEmpty(p0: Int) {
-                al.add("XML $i")
+                al.add("Dog $i")
                 arrayAdapter?.notifyDataSetChanged()
                 Log.d("LIST", "notified")
                 i++
