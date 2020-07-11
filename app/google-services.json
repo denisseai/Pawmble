@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "120248669724",
+    "firebase_url": "https://pawmble-14005.firebaseio.com",
+    "project_id": "pawmble-14005",
+    "storage_bucket": "pawmble-14005.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:120248669724:android:efb20123d94f744a5cf1d9",
+        "android_client_info": {
+          "package_name": "com.example.walkingbuddiesdogedition"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "120248669724-ebttqghe8i8q4rotmd00iitjqsnsnjda.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4LcAmH7xEar3lpAWujnqKYE8wvUihq38"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "120248669724-ebttqghe8i8q4rotmd00iitjqsnsnjda.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
