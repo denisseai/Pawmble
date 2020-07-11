@@ -1,4 +1,4 @@
-package com.example.walkingbuddiesdogedition
+package com.example.walkingbuddiesdogedition.activities
 
 import android.content.Context
 import android.content.Intent
@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import com.example.walkingbuddiesdogedition.activities.LoginActivity
+import com.example.walkingbuddiesdogedition.R
 import com.lorentzos.flingswipe.SwipeFlingAdapterView
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -25,7 +25,9 @@ class MainActivity : AppCompatActivity() {
         al.add("dog3")
         al.add("dog4")
 
-        arrayAdapter = ArrayAdapter(this, R.layout.item, R.id.helloText, al )
+        arrayAdapter = ArrayAdapter(this,
+            R.layout.item,
+            R.id.helloText, al )
 
         //set the listener and the adapter
         frame.adapter = arrayAdapter
