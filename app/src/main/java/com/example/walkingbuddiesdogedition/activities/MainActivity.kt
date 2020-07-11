@@ -7,57 +7,43 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import com.example.walkingbuddiesdogedition.R
+import com.example.walkingbuddiesdogedition.fragments.MatchesFragment
+import com.example.walkingbuddiesdogedition.fragments.ProfileFragment
+import com.example.walkingbuddiesdogedition.fragments.SwipeFragment
+import com.google.android.material.tabs.TabLayout
 import com.lorentzos.flingswipe.SwipeFlingAdapterView
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-    private var al = ArrayList<String>()
-    private var arrayAdapter: ArrayAdapter<String>? = null
-    private var i = 0
+
+    private var profileFragment: ProfileFragment? = null
+    private var swipeFragment: SwipeFragment? = null
+    private var matchesFragment: MatchesFragment? = null
+
+    private var profileTab: TabLayout.Tab? = null
+    private var swipeTab: TabLayout.Tab? = null
+    private var matchesTab: TabLayout.Tab? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        al.add("dog1")
-        al.add("dog2")
-        al.add("dog3")
-        al.add("dog4")
+        profileTab = navigationTabs.newTab()
+        swipeTab = navigationTabs.newTab()
+        matchesTab = navigationTabs.newTab()
 
-        arrayAdapter = ArrayAdapter(this,
-            R.layout.item,
-            R.id.helloText, al )
+        profileTab?.icon = ContextCompat.getDrawable(this, R.drawable.tab_profile)
+        swipeTab?.icon = ContextCompat.getDrawable(this, R.drawable.tab_swipe)
+        matchesTab?.icon = ContextCompat.getDrawable(this, R.drawable.tab_matches)
 
-        //set the listener and the adapter
-        frame.adapter = arrayAdapter
-        frame.setFlingListener(object: SwipeFlingAdapterView.onFlingListener {
-            override fun removeFirstObjectInAdapter() {
-                Log.d("LIST", "removed object!")
-                al.removeAt(0)
-                arrayAdapter?.notifyDataSetChanged()
-            }
+        navigationTabs.addTab(profileTab!!)
+        navigationTabs.addTab(swipeTab!!)
+        navigationTabs.addTab(matchesTab!!)
 
-            override fun onLeftCardExit(p0: Any?) {
-                Toast.makeText(this@MainActivity, "Nah!", Toast.LENGTH_SHORT).show()
-            }
-
-            override fun onRightCardExit(p0: Any?) {
-                Toast.makeText(this@MainActivity, "Yes!", Toast.LENGTH_SHORT).show()
-
-            }
-
-            override fun onAdapterAboutToEmpty(p0: Int) {
-                al.add("Dog $i")
-                arrayAdapter?.notifyDataSetChanged()
-                Log.d("LIST", "notified")
-                i++
-            }
-
-            override fun onScroll(p0: Float) {
-            }
-        })
     }
+
     companion object {
         fun newIntent(context: Context?) = Intent(context, MainActivity::class.java)
     }
