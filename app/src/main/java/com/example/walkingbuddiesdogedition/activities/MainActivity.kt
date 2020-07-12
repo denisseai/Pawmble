@@ -4,10 +4,12 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Layout
 import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import com.example.walkingbuddiesdogedition.R
 import com.example.walkingbuddiesdogedition.fragments.MatchesFragment
 import com.example.walkingbuddiesdogedition.fragments.ProfileFragment
@@ -42,8 +44,46 @@ class MainActivity : AppCompatActivity() {
         navigationTabs.addTab(swipeTab!!)
         navigationTabs.addTab(matchesTab!!)
 
+        navigationTabs.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener{
+            override fun onTabReselected(tab: TabLayout.Tab?) {
+                onTabSelected(tab)
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+            }
+
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                when(tab) {
+                    profileTab -> {
+                        if (profileFragment == null){
+                            profileFragment = ProfileFragment()
+                        }
+                        replaceFragment(profileFragment!!)
+                    }
+                    swipeTab -> {
+                        if (swipeFragment == null){
+                            swipeFragment = SwipeFragment()
+                        }
+                        replaceFragment(swipeFragment!!)
+                    }
+                    matchesTab -> {
+                        if (matchesFragment == null){
+                            matchesFragment = MatchesFragment()
+                        }
+                        replaceFragment(matchesFragment!!)
+                    }
+                }
+            }
+        })
+        profileTab?.select()
     }
 
+    fun replaceFragment(fragment: Fragment) {
+      supportFragmentManager.beginTransaction()
+          .replace(R.id.fragmentContainer, fragment)
+          .commit()
+
+    }
     companion object {
         fun newIntent(context: Context?) = Intent(context, MainActivity::class.java)
     }
