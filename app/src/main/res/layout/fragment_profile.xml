@@ -9,6 +9,31 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        
+        <RelativeLayout
+            android:id="@+id/profileLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp">
+            
+            <ImageView
+                android:id="@+id/photoIV"
+                android:layout_width="@dimen/standard_width"
+                android:layout_height="@dimen/standard_width"
+                android:paddingBottom="8dp"
+                android:src="@drawable/default_pic"/>
+            
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/nameTIL"
+                android:layout_width="@dimen/standard_width"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/photoIV"
+                android:paddingBottom="8dp">
+            </com.google.android.material.textfield.TextInputLayout>
+            
+        </RelativeLayout>
     </androidx.core.widget.NestedScrollView>
 
     <LinearLayout
