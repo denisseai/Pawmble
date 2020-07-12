@@ -31,8 +31,44 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/photoIV"
                 android:paddingBottom="8dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/nameET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_name"/>
             </com.google.android.material.textfield.TextInputLayout>
-            
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/emailTIL"
+                android:layout_width="@dimen/standard_width"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/nameTIL"
+                android:paddingBottom="8dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/emailET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_email"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ageTIL"
+                android:layout_width="@dimen/standard_width"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/emailTIL"
+                android:paddingBottom="8dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ageET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_age"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
         </RelativeLayout>
     </androidx.core.widget.NestedScrollView>
 
