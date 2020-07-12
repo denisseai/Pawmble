@@ -6,7 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.walkingbuddiesdogedition.R
+import com.example.walkingbuddiesdogedition.activities.Callback
+
 class SwipeFragment : Fragment() {
+
+    private var callback: Callback? = null
+
+    fun setCallback(callback: Callback) {
+        this.callback = callback
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
