@@ -6,8 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.walkingbuddiesdogedition.R
+import com.google.firebase.database.DatabaseReference
 
 class ProfileFragment : Fragment() {
+
+    private lateinit var userId: String
+    private lateinit var userDataBase: DatabaseReference
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
