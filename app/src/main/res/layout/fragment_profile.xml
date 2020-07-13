@@ -29,7 +29,7 @@
     <RelativeLayout
         android:id="@+id/profileLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="585dp"
         android:gravity="center_horizontal"
         android:paddingTop="16dp"
         android:paddingBottom="16dp"
@@ -114,13 +114,13 @@
 
                 <RadioButton
                     android:id="@+id/radioFemale1"
-                    android:layout_width="110dp"
+                    android:layout_width="119dp"
                     android:layout_height="match_parent"
                     android:text="@string/hint_female" />
 
                 <RadioButton
                     android:id="@+id/radioMale1"
-                    android:layout_width="110dp"
+                    android:layout_width="119dp"
                     android:layout_height="match_parent"
                     android:text="@string/hint_male"
                     app:layout_anchor="@+id/nestedScrollView"

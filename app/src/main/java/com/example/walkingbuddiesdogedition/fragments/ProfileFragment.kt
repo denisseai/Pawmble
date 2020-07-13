@@ -18,6 +18,8 @@ class ProfileFragment : Fragment() {
 
     fun setCallback(callback: Callback) {
         this.callback = callback
+        userId = callback.onGetUserId()
+        userDataBase = callback.getUserDatabase().child(userId)
     }
 
     override fun onCreateView(
