@@ -220,21 +220,22 @@
         <Button
             android:id="@+id/applyButton"
             style="@style/StandardButton"
-            android:layout_width="191dp"
-            android:layout_height="wrap_content"
+            android:layout_width="163dp"
+            android:layout_height="38dp"
             android:layout_below="@+id/radio3Layout"
-            android:text="@string/apply"
-            android:paddingTop="8dp"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="@string/apply" />
 
         <Button
             android:id="@+id/signoutButton"
             style="@style/StandardButton"
-            android:layout_width="191dp"
-            android:layout_height="wrap_content"
+            android:layout_width="163dp"
+            android:layout_height="37dp"
             android:layout_below="@+id/applyButton"
-            android:text="@string/sign_out"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="11dp"
+            android:text="@string/sign_out" />
     </RelativeLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
