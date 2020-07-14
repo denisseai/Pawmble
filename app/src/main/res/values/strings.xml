@@ -25,4 +25,5 @@
     <string name="default_profile_pic_description">default profile pic</string>
     <string name="error_profile_incomplete">Please complete your profile</string>
     <string name="boop_the_snoot">Boop the snoot</string>
+    <string name="no_available_doggos">No available doggos</string>
 </resources>
