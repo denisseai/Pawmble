@@ -55,7 +55,7 @@
             android:layout_height="75dp"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
-            android:scaleType="fitCenter"
+            android:scaleType="centerInside"
             android:src="@drawable/dislike" />
 
         <ImageButton
@@ -63,15 +63,16 @@
             android:layout_height="75dp"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
-            android:scaleType="fitCenter"
+            android:scaleType="centerInside"
             android:src="@drawable/like" />
     </LinearLayout>
 
     <com.lorentzos.flingswipe.SwipeFlingAdapterView
-        android:id="@+id/search_edit_frame"
+        android:id="@+id/frame"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </com.lorentzos.flingswipe.SwipeFlingAdapterView>
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:rotation_degrees="15.5"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
