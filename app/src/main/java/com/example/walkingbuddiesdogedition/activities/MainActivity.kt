@@ -112,6 +112,10 @@ class MainActivity : AppCompatActivity(), Callback {
 
     override fun getUserDatabase(): DatabaseReference = userDatabase
 
+    override fun profileComplete() {
+        swipeTab?.select()
+    }
+
     companion object {
         fun newIntent(context: Context?) = Intent(context, MainActivity::class.java)
     }

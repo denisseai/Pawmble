@@ -121,6 +121,8 @@ class ProfileFragment : Fragment() {
             userDataBase.child(DATA_GENDER).setValue(gender)
             userDataBase.child(DATA_SIZE).setValue(size)
             userDataBase.child(DATA_SIZE_PREFERENCE).setValue(preferredSize)
+
+            callback?.profileComplete()
         }
     }
 }
