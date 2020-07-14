@@ -8,7 +8,6 @@ data class User(
     val size: String? = "",
     val gender: String? = "",
     val preferredAge: String? = "",
-    val preferredGender: String? = "",
     val preferredSize: String? = "",
     val imageUrl: String? = ""
 
