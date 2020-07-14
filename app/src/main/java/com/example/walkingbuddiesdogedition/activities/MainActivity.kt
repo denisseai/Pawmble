@@ -1,13 +1,20 @@
 package com.example.walkingbuddiesdogedition.activities
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.ImageDecoder
+import android.net.Uri
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.MediaStore
 import android.text.Layout
 import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.walkingbuddiesdogedition.R
@@ -19,8 +26,13 @@ import com.google.android.material.tabs.TabLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.storage.FirebaseStorage
 import com.lorentzos.flingswipe.SwipeFlingAdapterView
 import kotlinx.android.synthetic.main.activity_main.*
+import java.io.ByteArrayOutputStream
+import java.io.IOException
+
+const val REQUEST_CODE_PHOTO = 1234
 
 class MainActivity : AppCompatActivity(), Callback {
 
@@ -35,6 +47,8 @@ class MainActivity : AppCompatActivity(), Callback {
     private var profileTab: TabLayout.Tab? = null
     private var swipeTab: TabLayout.Tab? = null
     private var matchesTab: TabLayout.Tab? = null
+
+    private var resultImageUrl: Uri? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -99,7 +113,42 @@ class MainActivity : AppCompatActivity(), Callback {
       supportFragmentManager.beginTransaction()
           .replace(R.id.fragmentContainer, fragment)
           .commit()
+    }
 
+    @RequiresApi(Build.VERSION_CODES.P)
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE_PHOTO) {
+            resultImageUrl = data?.data
+            storeImage()
+        }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.P)
+    fun storeImage() {
+        if(resultImageUrl != null && userId != null) {
+            val filePath = FirebaseStorage.getInstance().reference.child("profileImage").child(userId)
+            var bitmap: Bitmap? = null
+            val source = ImageDecoder.createSource(application.contentResolver, resultImageUrl!!)
+            try {
+                bitmap = ImageDecoder.decodeBitmap(source)
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
+            val baos = ByteArrayOutputStream()
+            bitmap?.compress(Bitmap.CompressFormat.JPEG, 20, baos)
+            val data = baos.toByteArray()
+
+            val uploadTask = filePath.putBytes(data)
+            uploadTask.addOnFailureListener { e -> e.printStackTrace() }
+            uploadTask.addOnSuccessListener {  taskSnapshot ->
+                filePath.downloadUrl
+                    .addOnSuccessListener {  uri ->
+                        profileFragment?.updateImageUri(uri.toString())
+                    }
+                    .addOnFailureListener {e -> e.printStackTrace()}
+            }
+        }
     }
 
     override fun onSignout() {
@@ -114,6 +163,12 @@ class MainActivity : AppCompatActivity(), Callback {
 
     override fun profileComplete() {
         swipeTab?.select()
+    }
+
+    override fun startActivityForPhoto() {
+        val intent = Intent(Intent.ACTION_PICK)
+        intent.type = "image/*"
+        startActivityForResult(intent, REQUEST_CODE_PHOTO)
     }
 
     companion object {

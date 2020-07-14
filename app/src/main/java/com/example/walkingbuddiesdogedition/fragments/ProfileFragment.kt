@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import com.bumptech.glide.Glide
 import com.example.walkingbuddiesdogedition.R
 import com.example.walkingbuddiesdogedition.activities.Callback
 import com.example.walkingbuddiesdogedition.util.*
@@ -42,6 +43,9 @@ class ProfileFragment : Fragment() {
         progressLayout.setOnTouchListener {view, event -> true}
 
         populateInfo()
+
+        photoIV.setOnClickListener {callback?.startActivityForPhoto()}
+
         applyButton.setOnClickListener {onApply() }
         signoutButton.setOnClickListener {callback?.onSignout()}
 
@@ -87,6 +91,9 @@ class ProfileFragment : Fragment() {
                     } else {
 
                     }
+                    if(!user?.imageUrl.isNullOrEmpty()) {
+                        populateImage(user?.imageUrl!!)
+                    }
                     progressLayout.visibility = View.GONE
                 }
             }
@@ -124,5 +131,15 @@ class ProfileFragment : Fragment() {
 
             callback?.profileComplete()
         }
+    }
+
+    fun updateImageUri(uri: String) {
+        userDataBase.child(DATA_IMAGE_URL).setValue(uri)
+        populateImage(uri)
+    }
+    fun populateImage(uri: String) {
+        Glide.with(this)
+            .load(uri)
+            .into(photoIV)
     }
 }

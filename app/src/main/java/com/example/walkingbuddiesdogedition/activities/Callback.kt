@@ -7,4 +7,5 @@ interface Callback {
     fun onGetUserId(): String
     fun getUserDatabase(): DatabaseReference
     fun profileComplete()
+    fun startActivityForPhoto()
 }

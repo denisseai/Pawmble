@@ -11,34 +11,43 @@
         android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
     </androidx.core.widget.NestedScrollView>
 
     <LinearLayout
         android:id="@+id/progressLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#aaaaaaaa"
         android:gravity="center"
-        android:background="#aaaaaaaa">
+        app:layout_anchor="@+id/nestedScrollView"
+        app:layout_anchorGravity="center">
+
         <ProgressBar
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
     <RelativeLayout
         android:id="@+id/profileLayout"
         android:layout_width="match_parent"
-        android:layout_height="585dp"
+        android:layout_height="647dp"
         android:gravity="center_horizontal"
         android:paddingTop="16dp"
         android:paddingBottom="16dp"
         app:layout_anchor="@+id/nestedScrollView"
         app:layout_anchorGravity="center">
 
+        <TextView
+            android:id="@+id/boop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/boop_the_snoot" />
+
         <ImageView
             android:id="@+id/photoIV"
-            android:layout_width="160dp"
-            android:layout_height="137dp"
+            android:layout_width="247dp"
+            android:layout_height="179dp"
             android:layout_centerHorizontal="true"
             android:contentDescription="@string/default_profile_pic_description"
             android:paddingBottom="8dp"
@@ -223,7 +232,7 @@
             android:layout_height="38dp"
             android:layout_below="@+id/radio3Layout"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:text="@string/apply" />
 
         <Button
