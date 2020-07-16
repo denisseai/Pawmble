@@ -52,7 +52,6 @@ class SwipeFragment : Fragment() {
                 val user = snapshot.getValue(User::class.java)
                 preferredSize = user?.preferredSize
                 populateItems()
-
             }
         })
 
@@ -61,6 +60,8 @@ class SwipeFragment : Fragment() {
         frame.adapter = cardsAdapter
         frame.setFlingListener(object: SwipeFlingAdapterView.onFlingListener {
             override fun removeFirstObjectInAdapter() {
+                rowItems.removeAt(0)
+                cardsAdapter?.notifyDataSetChanged()
             }
 
             override fun onLeftCardExit(p0: Any?) {
@@ -96,6 +97,17 @@ class SwipeFragment : Fragment() {
             override fun onScroll(p0: Float) {
             }
         })
+
+        likeButton.setOnClickListener {
+            if(!rowItems.isEmpty()) {
+                frame.topCardListener.selectRight()
+            }
+        }
+        dislikeButton.setOnClickListener {
+            if(!rowItems.isEmpty()) {
+                frame.topCardListener.selectRight()
+            }
+        }
     }
 
     fun populateItems() {
@@ -111,8 +123,8 @@ class SwipeFragment : Fragment() {
                     val user = child.getValue(User::class.java)
                     if (user != null) {
                         var showUser = true
-                        if(child.child(DATA_SWIPE_LEFT).hasChild(userId) &&
-                            child.child(DATA_SWIPE_RIGHT).hasChild(userId) &&
+                        if(child.child(DATA_SWIPE_LEFT).hasChild(userId) ||
+                            child.child(DATA_SWIPE_RIGHT).hasChild(userId) ||
                             child.child(DATA_MATCHES).hasChild(userId)) {
                             showUser = false
                         }
