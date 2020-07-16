@@ -21,6 +21,7 @@ import com.example.walkingbuddiesdogedition.R
 import com.example.walkingbuddiesdogedition.fragments.MatchesFragment
 import com.example.walkingbuddiesdogedition.fragments.ProfileFragment
 import com.example.walkingbuddiesdogedition.fragments.SwipeFragment
+import com.example.walkingbuddiesdogedition.util.DATA_CHAT
 import com.example.walkingbuddiesdogedition.util.DATA_USERS
 import com.google.android.material.tabs.TabLayout
 import com.google.firebase.auth.FirebaseAuth
@@ -39,6 +40,8 @@ class MainActivity : AppCompatActivity(), Callback {
     private val firebaseAuth = FirebaseAuth.getInstance()
     private val userId = firebaseAuth.currentUser?.uid
     private lateinit var userDatabase: DatabaseReference
+    private lateinit var chatDatabase: DatabaseReference
+
 
     private var profileFragment: ProfileFragment? = null
     private var swipeFragment: SwipeFragment? = null
@@ -59,6 +62,7 @@ class MainActivity : AppCompatActivity(), Callback {
         }
 
         userDatabase = FirebaseDatabase.getInstance().reference.child(DATA_USERS)
+        chatDatabase = FirebaseDatabase.getInstance().reference.child(DATA_CHAT)
 
         profileTab = navigationTabs.newTab()
         swipeTab = navigationTabs.newTab()
@@ -160,6 +164,8 @@ class MainActivity : AppCompatActivity(), Callback {
     override fun onGetUserId(): String  = userId!!
 
     override fun getUserDatabase(): DatabaseReference = userDatabase
+
+    override fun getChatDatabase(): DatabaseReference = chatDatabase
 
     override fun profileComplete() {
         swipeTab?.select()
