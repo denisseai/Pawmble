@@ -13,3 +13,7 @@ val GENDER_FEMALE = "female"
 val SIZE_SMALL = "small"
 val SIZE_MEDIUM = "medium"
 val SIZE_LARGE = "large"
+
+val DATA_SWIPE_LEFT = "swipeLeft"
+val DATA_SWIPE_RIGHT = "swipeRight"
+val DATA_MATCHES = "matches"
