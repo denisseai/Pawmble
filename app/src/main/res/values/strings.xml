@@ -26,4 +26,13 @@
     <string name="error_profile_incomplete">Please complete your profile</string>
     <string name="boop_the_snoot">Boop the snoot</string>
     <string name="no_available_doggos">No available doggos</string>
+    <string name="send_button_text">Sent</string>
+    <string name="hint_message">bark your message</string>
+    <string name="dislike_icon">dislike icon</string>
+    <string name="like_icon">like icon</string>
+    <string name="dog_s_name">Dog\'s name</string>
+    <string name="your_match_is">Your Match is…</string>
+    <string name="boop_the_snoot_to_chat">boop the snoot to chat</string>
+    <string name="picture_of_matched_dog">picture of matched dog</string>
+    <string name="profile_pic_in_chat_page">profile pic in chat page</string>
 </resources>

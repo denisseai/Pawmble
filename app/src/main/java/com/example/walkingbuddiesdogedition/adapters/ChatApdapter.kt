@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.walkingbuddiesdogedition.R
+import com.example.walkingbuddiesdogedition.activities.ChatActivity
 import com.example.walkingbuddiesdogedition.util.Chat
 
 class ChatAdapter(private var chat: ArrayList<Chat>) :
@@ -33,14 +34,22 @@ class ChatAdapter(private var chat: ArrayList<Chat>) :
         private var image = view.findViewById<ImageView>(R.id.chatPictureIV)
         private var name = view.findViewById<TextView>(R.id.chatNameTV)
 
-        fun bind(chat: Chat) {
-            name.text = chat.name
+        fun bind(message: Chat) {
+            name.text = message.name
             if (image != null) {
                 Glide.with(view)
-                    .load(chat.imageUrl)
+                    .load(message.imageUrl)
                     .into(image)
             }
-            layout.setOnClickListener {}
+            layout.setOnClickListener {
+                val intent = ChatActivity.newIntent(
+                    view.context,
+                    message.chatId,
+                    message.userId,
+                    message.imageUrl,
+                    message.otherUserId)
+                view.context.startActivity(intent)
+            }
         }
     }
 }

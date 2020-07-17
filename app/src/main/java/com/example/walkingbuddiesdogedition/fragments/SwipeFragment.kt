@@ -21,16 +21,16 @@ import kotlinx.android.synthetic.main.fragment_swipe.*
 
 class SwipeFragment : Fragment() {
 
-    private var callback: Callback? = null
     private lateinit var userId: String
     private lateinit var userDatabase: DatabaseReference
     private lateinit var chatDatabase: DatabaseReference
+
     private var cardsAdapter: ArrayAdapter<User>? = null
     private var rowItems = ArrayList<User>()
     private var preferredSize: String? = null
-
     private var userName: String? = null
     private var imageUrl: String? = null
+    private var callback: Callback? = null
 
     fun setCallback(callback: Callback) {
         this.callback = callback
@@ -63,6 +63,7 @@ class SwipeFragment : Fragment() {
         })
 
         cardsAdapter = context?.let { CardsAdapter(it, R.layout.item, rowItems) }
+        //cardsAdapter = CardsAdapter(context, R.layout.item, rowItems)
 
         frame.adapter = cardsAdapter
         frame.setFlingListener(object : SwipeFlingAdapterView.onFlingListener {
@@ -72,36 +73,29 @@ class SwipeFragment : Fragment() {
             }
 
             override fun onLeftCardExit(p0: Any?) {
-                var user = p0 as User
-                userDatabase.child(user.uid.toString()).child(DATA_SWIPE_LEFT).child(userId)
-                    .setValue(true)
+                val user = p0 as User
+                userDatabase.child(user.uid.toString()).child(DATA_SWIPE_LEFT).child(userId).setValue(true)
             }
 
             override fun onRightCardExit(p0: Any?) {
                 val selectedUser = p0 as User
                 val selectedUserId = selectedUser.uid
+
                 if (!selectedUserId.isNullOrEmpty()) {
                     userDatabase.child(userId).child(DATA_SWIPE_RIGHT)
                         .addListenerForSingleValueEvent(object : ValueEventListener {
                             override fun onCancelled(error: DatabaseError) {
                             }
-
                             override fun onDataChange(snapshot: DataSnapshot) {
                                 if (snapshot.hasChild(selectedUserId)) {
-                                    Toast.makeText(
-                                        context,
-                                        "BARK! we have a match!",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
+                                    Toast.makeText(context, "BARK! we have a match!", Toast.LENGTH_SHORT).show()
 
                                     val chatKey = chatDatabase.push().key
+
                                     if (chatKey != null) {
-                                        userDatabase.child(userId).child(DATA_SWIPE_RIGHT)
-                                            .child(selectedUserId).removeValue()
-                                        userDatabase.child(userId).child(DATA_MATCHES)
-                                            .child(selectedUserId).setValue(chatKey)
-                                        userDatabase.child(selectedUserId).child(DATA_MATCHES)
-                                            .child(selectedUserId).setValue(chatKey)
+                                        userDatabase.child(userId).child(DATA_SWIPE_RIGHT).child(selectedUserId).removeValue()
+                                        userDatabase.child(userId).child(DATA_MATCHES).child(selectedUserId).setValue(chatKey)
+                                        userDatabase.child(selectedUserId).child(DATA_MATCHES).child(userId).setValue(chatKey)
 
                                         chatDatabase.child(chatKey).child(userId).child(DATA_NAME)
                                             .setValue(userName)
@@ -116,7 +110,7 @@ class SwipeFragment : Fragment() {
 
                                 } else {
                                     userDatabase.child(selectedUserId).child(DATA_SWIPE_RIGHT)
-                                        .child(selectedUserId).setValue(true)
+                                        .child(userId).setValue(true)
                                 }
                             }
                         })
@@ -131,12 +125,12 @@ class SwipeFragment : Fragment() {
         })
 
         likeButton.setOnClickListener {
-            if (!rowItems.isEmpty()) {
+            if (rowItems.isNotEmpty()) {
                 frame.topCardListener.selectRight()
             }
         }
         dislikeButton.setOnClickListener {
-            if (!rowItems.isEmpty()) {
+            if (rowItems.isNotEmpty()) {
                 frame.topCardListener.selectRight()
             }
         }
@@ -149,7 +143,6 @@ class SwipeFragment : Fragment() {
         cardsQuery.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onCancelled(error: DatabaseError) {
             }
-
             override fun onDataChange(snapshot: DataSnapshot) {
                 snapshot.children.forEach { child ->
                     val user = child.getValue(User::class.java)

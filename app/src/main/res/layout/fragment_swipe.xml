@@ -58,7 +58,8 @@
             android:layout_weight="1"
             android:scaleType="centerInside"
             android:src="@drawable/dislike"
-            android:background="@null"/>
+            android:background="@null"
+            android:contentDescription="@string/dislike_icon" />
 
         <ImageButton
             android:id="@+id/likeButton"
@@ -68,7 +69,8 @@
             android:layout_weight="1"
             android:scaleType="centerInside"
             android:src="@drawable/like"
-            android:background="@null"/>
+            android:background="@null"
+            android:contentDescription="@string/like_icon" />
     </LinearLayout>
 
     <com.lorentzos.flingswipe.SwipeFlingAdapterView
