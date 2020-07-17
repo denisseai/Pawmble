@@ -24,14 +24,19 @@ class SwipeFragment : Fragment() {
     private var callback: Callback? = null
     private lateinit var userId: String
     private lateinit var userDatabase: DatabaseReference
+    private lateinit var chatDatabase: DatabaseReference
     private var cardsAdapter: ArrayAdapter<User>? = null
     private var rowItems = ArrayList<User>()
     private var preferredSize: String? = null
+
+    private var userName: String? = null
+    private var imageUrl: String? = null
 
     fun setCallback(callback: Callback) {
         this.callback = callback
         userId = callback.onGetUserId()
         userDatabase = callback.getUserDatabase()
+        chatDatabase = callback.getChatDatabase()
     }
 
     override fun onCreateView(
@@ -44,13 +49,15 @@ class SwipeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        userDatabase.child(userId).addListenerForSingleValueEvent(object: ValueEventListener{
+        userDatabase.child(userId).addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onCancelled(error: DatabaseError) {
             }
 
             override fun onDataChange(snapshot: DataSnapshot) {
                 val user = snapshot.getValue(User::class.java)
                 preferredSize = user?.preferredSize
+                userName = user?.name
+                imageUrl = user?.imageUrl
                 populateItems()
             }
         })
@@ -58,7 +65,7 @@ class SwipeFragment : Fragment() {
         cardsAdapter = context?.let { CardsAdapter(it, R.layout.item, rowItems) }
 
         frame.adapter = cardsAdapter
-        frame.setFlingListener(object: SwipeFlingAdapterView.onFlingListener {
+        frame.setFlingListener(object : SwipeFlingAdapterView.onFlingListener {
             override fun removeFirstObjectInAdapter() {
                 rowItems.removeAt(0)
                 cardsAdapter?.notifyDataSetChanged()
@@ -66,28 +73,53 @@ class SwipeFragment : Fragment() {
 
             override fun onLeftCardExit(p0: Any?) {
                 var user = p0 as User
-                userDatabase.child(user.uid.toString()).child(DATA_SWIPE_LEFT).child(userId).setValue(true)
+                userDatabase.child(user.uid.toString()).child(DATA_SWIPE_LEFT).child(userId)
+                    .setValue(true)
             }
 
             override fun onRightCardExit(p0: Any?) {
                 val selectedUser = p0 as User
                 val selectedUserId = selectedUser.uid
                 if (!selectedUserId.isNullOrEmpty()) {
-                    userDatabase.child(userId).child(DATA_SWIPE_RIGHT).addListenerForSingleValueEvent(object: ValueEventListener{
-                        override fun onCancelled(error: DatabaseError) {
-                        }
-                        override fun onDataChange(snapshot: DataSnapshot) {
-                            if(snapshot.hasChild(selectedUserId)) {
-                                Toast.makeText(context, "BARK! we have a match!", Toast.LENGTH_SHORT).show()
-
-                                userDatabase.child(userId).child(DATA_SWIPE_RIGHT).child(selectedUserId).removeValue()
-                                userDatabase.child(userId).child(DATA_MATCHES).child(selectedUserId).setValue(true)
-                                userDatabase.child(selectedUserId).child(DATA_MATCHES).child(selectedUserId).setValue(true)
-                            } else {
-                                userDatabase.child(selectedUserId).child(DATA_SWIPE_RIGHT).child(selectedUserId).setValue(true)
+                    userDatabase.child(userId).child(DATA_SWIPE_RIGHT)
+                        .addListenerForSingleValueEvent(object : ValueEventListener {
+                            override fun onCancelled(error: DatabaseError) {
                             }
-                        }
-                    })
+
+                            override fun onDataChange(snapshot: DataSnapshot) {
+                                if (snapshot.hasChild(selectedUserId)) {
+                                    Toast.makeText(
+                                        context,
+                                        "BARK! we have a match!",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+
+                                    val chatKey = chatDatabase.push().key
+                                    if (chatKey != null) {
+                                        userDatabase.child(userId).child(DATA_SWIPE_RIGHT)
+                                            .child(selectedUserId).removeValue()
+                                        userDatabase.child(userId).child(DATA_MATCHES)
+                                            .child(selectedUserId).setValue(chatKey)
+                                        userDatabase.child(selectedUserId).child(DATA_MATCHES)
+                                            .child(selectedUserId).setValue(chatKey)
+
+                                        chatDatabase.child(chatKey).child(userId).child(DATA_NAME)
+                                            .setValue(userName)
+                                        chatDatabase.child(chatKey).child(userId)
+                                            .child(DATA_IMAGE_URL).setValue(imageUrl)
+
+                                        chatDatabase.child(chatKey).child(selectedUserId)
+                                            .child(DATA_NAME).setValue(selectedUser.name)
+                                        chatDatabase.child(chatKey).child(selectedUserId)
+                                            .child(DATA_IMAGE_URL).setValue(selectedUser.imageUrl)
+                                    }
+
+                                } else {
+                                    userDatabase.child(selectedUserId).child(DATA_SWIPE_RIGHT)
+                                        .child(selectedUserId).setValue(true)
+                                }
+                            }
+                        })
                 }
             }
 
@@ -99,12 +131,12 @@ class SwipeFragment : Fragment() {
         })
 
         likeButton.setOnClickListener {
-            if(!rowItems.isEmpty()) {
+            if (!rowItems.isEmpty()) {
                 frame.topCardListener.selectRight()
             }
         }
         dislikeButton.setOnClickListener {
-            if(!rowItems.isEmpty()) {
+            if (!rowItems.isEmpty()) {
                 frame.topCardListener.selectRight()
             }
         }
@@ -114,7 +146,7 @@ class SwipeFragment : Fragment() {
         noUsersLayout.visibility = View.GONE
         progressLayout.visibility = View.VISIBLE
         val cardsQuery = userDatabase.orderByChild(DATA_SIZE).equalTo(preferredSize)
-        cardsQuery.addListenerForSingleValueEvent(object: ValueEventListener {
+        cardsQuery.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onCancelled(error: DatabaseError) {
             }
 
@@ -123,12 +155,13 @@ class SwipeFragment : Fragment() {
                     val user = child.getValue(User::class.java)
                     if (user != null) {
                         var showUser = true
-                        if(child.child(DATA_SWIPE_LEFT).hasChild(userId) ||
+                        if (child.child(DATA_SWIPE_LEFT).hasChild(userId) ||
                             child.child(DATA_SWIPE_RIGHT).hasChild(userId) ||
-                            child.child(DATA_MATCHES).hasChild(userId)) {
+                            child.child(DATA_MATCHES).hasChild(userId)
+                        ) {
                             showUser = false
                         }
-                        if(showUser) {
+                        if (showUser) {
                             rowItems.add(user)
                             cardsAdapter?.notifyDataSetChanged()
                         }

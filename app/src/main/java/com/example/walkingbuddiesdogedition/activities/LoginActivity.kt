@@ -36,7 +36,7 @@ class LoginActivity : AppCompatActivity() {
         firebaseAuth.removeAuthStateListener(firebaseAuthListener)
     }
     fun onLogin(v:View){
-        if(!email.text.toString().isNullOrEmpty() && !password.text.toString().isNullOrEmpty()) {
+        if(email.text.toString().isNotEmpty() && password.text.toString().isNotEmpty()) {
             firebaseAuth.signInWithEmailAndPassword(email.text.toString(), password.text.toString())
                 .addOnCompleteListener { task ->
                     if (!task.isSuccessful) {

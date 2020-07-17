@@ -10,10 +10,17 @@ import com.bumptech.glide.Glide
 import com.example.walkingbuddiesdogedition.R
 import com.example.walkingbuddiesdogedition.util.Chat
 
-class ChatAdapter(private var chat: ArrayList<Chat>): RecyclerView.Adapter<ChatAdapter.ChatViewHolder>() {
+class ChatAdapter(private var chat: ArrayList<Chat>) :
+    RecyclerView.Adapter<ChatAdapter.ChatViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int)
-    = ChatViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_chat, parent, false))
+    fun addElement(message: Chat) {
+        chat.add(message)
+        notifyDataSetChanged()
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ChatViewHolder(
+        LayoutInflater.from(parent.context).inflate(R.layout.item_chat, parent, false)
+    )
 
     override fun getItemCount() = chat.size
 
@@ -21,7 +28,7 @@ class ChatAdapter(private var chat: ArrayList<Chat>): RecyclerView.Adapter<ChatA
         holder.bind(chat[position])
     }
 
-    class ChatViewHolder(private val view: View): RecyclerView.ViewHolder(view) {
+    class ChatViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         private var layout = view.findViewById<View>(R.id.chatLayout)
         private var image = view.findViewById<ImageView>(R.id.chatPictureIV)
         private var name = view.findViewById<TextView>(R.id.chatNameTV)

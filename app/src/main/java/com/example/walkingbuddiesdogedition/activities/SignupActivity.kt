@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import com.example.walkingbuddiesdogedition.R
+import com.example.walkingbuddiesdogedition.util.DATA_USERS
 import com.example.walkingbuddiesdogedition.util.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuth.AuthStateListener
@@ -41,16 +42,16 @@ class SignupActivity : AppCompatActivity() {
     }
 
     fun onSignup(v: View) {
-        if(!email.text.toString().isNullOrEmpty() && !password.text.toString().isNullOrEmpty()) {
+        if(email.text.toString().isNotEmpty() && password.text.toString().isNotEmpty()) {
             firebaseAuth.createUserWithEmailAndPassword(email.text.toString(), password.text.toString())
                 .addOnCompleteListener { task ->
                     if (!task.isSuccessful) {
                         Toast.makeText(this, "Signup error ${task.exception?.localizedMessage}", Toast.LENGTH_SHORT).show()
-                    } else{
+                    } else {
                         val email = email.text.toString()
                         val userId = firebaseAuth.currentUser?.uid ?: ""
-                        val user = User(userId, "", email, "", "","","","","")
-                        firebaseDatabase.child("DATA_USERS").child(userId).setValue(user)
+                        val user = User(userId, "", email, "", "","","","")
+                        firebaseDatabase.child(DATA_USERS).child(userId).setValue(user)
                     }
                 }
         }

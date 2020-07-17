@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity(), Callback {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        if(userId.isNullOrEmpty()) {
+        if (userId.isNullOrEmpty()) {
             onSignout()
         }
 
@@ -76,7 +76,7 @@ class MainActivity : AppCompatActivity(), Callback {
         navigationTabs.addTab(swipeTab!!)
         navigationTabs.addTab(matchesTab!!)
 
-        navigationTabs.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener{
+        navigationTabs.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabReselected(tab: TabLayout.Tab?) {
                 onTabSelected(tab)
             }
@@ -85,23 +85,23 @@ class MainActivity : AppCompatActivity(), Callback {
             }
 
             override fun onTabSelected(tab: TabLayout.Tab?) {
-                when(tab) {
+                when (tab) {
                     profileTab -> {
-                        if (profileFragment == null){
+                        if (profileFragment == null) {
                             profileFragment = ProfileFragment()
                             profileFragment!!.setCallback(this@MainActivity)
                         }
                         replaceFragment(profileFragment!!)
                     }
                     swipeTab -> {
-                        if (swipeFragment == null){
+                        if (swipeFragment == null) {
                             swipeFragment = SwipeFragment()
                             swipeFragment!!.setCallback(this@MainActivity)
                         }
                         replaceFragment(swipeFragment!!)
                     }
                     matchesTab -> {
-                        if (matchesFragment == null){
+                        if (matchesFragment == null) {
                             matchesFragment = MatchesFragment()
                             matchesFragment!!.setCallback(this@MainActivity)
                         }
@@ -114,9 +114,9 @@ class MainActivity : AppCompatActivity(), Callback {
     }
 
     fun replaceFragment(fragment: Fragment) {
-      supportFragmentManager.beginTransaction()
-          .replace(R.id.fragmentContainer, fragment)
-          .commit()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainer, fragment)
+            .commit()
     }
 
     @RequiresApi(Build.VERSION_CODES.P)
@@ -130,8 +130,9 @@ class MainActivity : AppCompatActivity(), Callback {
 
     @RequiresApi(Build.VERSION_CODES.P)
     fun storeImage() {
-        if(resultImageUrl != null && userId != null) {
-            val filePath = FirebaseStorage.getInstance().reference.child("profileImage").child(userId)
+        if (resultImageUrl != null && userId != null) {
+            val filePath =
+                FirebaseStorage.getInstance().reference.child("profileImage").child(userId)
             var bitmap: Bitmap? = null
             val source = ImageDecoder.createSource(application.contentResolver, resultImageUrl!!)
             try {
@@ -145,12 +146,12 @@ class MainActivity : AppCompatActivity(), Callback {
 
             val uploadTask = filePath.putBytes(data)
             uploadTask.addOnFailureListener { e -> e.printStackTrace() }
-            uploadTask.addOnSuccessListener {  taskSnapshot ->
+            uploadTask.addOnSuccessListener { taskSnapshot ->
                 filePath.downloadUrl
-                    .addOnSuccessListener {  uri ->
+                    .addOnSuccessListener { uri ->
                         profileFragment?.updateImageUri(uri.toString())
                     }
-                    .addOnFailureListener {e -> e.printStackTrace()}
+                    .addOnFailureListener { e -> e.printStackTrace() }
             }
         }
     }
@@ -161,7 +162,7 @@ class MainActivity : AppCompatActivity(), Callback {
         finish()
     }
 
-    override fun onGetUserId(): String  = userId!!
+    override fun onGetUserId(): String = userId!!
 
     override fun getUserDatabase(): DatabaseReference = userDatabase
 
