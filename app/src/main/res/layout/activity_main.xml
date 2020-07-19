@@ -9,14 +9,15 @@
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/navigationTabs"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/navigation_height"
-        android:layout_marginTop="8dp"
+        android:layout_width="404dp"
+        android:layout_height="60dp"
         android:background="@drawable/navigation_shadow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:tabIndicator="@null"
         app:tabMinWidth="@dimen/navigation_height"
-        app:tabRippleColor="@null"/>
+        app:tabRippleColor="@null" />
 
     <LinearLayout
         android:id="@+id/fragmentContainer"

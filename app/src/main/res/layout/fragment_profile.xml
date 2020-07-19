@@ -29,8 +29,8 @@
 
     <RelativeLayout
         android:id="@+id/profileLayout"
-        android:layout_width="match_parent"
-        android:layout_height="647dp"
+        android:layout_width="392dp"
+        android:layout_height="639dp"
         android:gravity="center_horizontal"
         android:paddingTop="16dp"
         android:paddingBottom="16dp"
@@ -105,7 +105,7 @@
 
             <TextView
                 android:id="@+id/genderTV"
-                android:layout_width="37dp"
+                android:layout_width="18dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:padding="8dp"
@@ -145,7 +145,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="223dp"
+                android:layout_width="203dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:padding="8dp"
@@ -190,8 +190,8 @@
 
             <TextView
                 android:id="@+id/preferredSizeTV"
-                android:layout_width="214dp"
-                android:layout_height="wrap_content"
+                android:layout_width="191dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:padding="8dp"
                 android:text="@string/hint_preferred_size" />

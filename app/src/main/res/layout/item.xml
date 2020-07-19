@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_gravity="center"
     android:layout_width="wrap_content"
@@ -24,10 +23,11 @@
             android:id="@+id/photoIV"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="fitCenter"/>
+            android:contentDescription="@string/default_profile_pic_description"
+            android:scaleType="fitCenter" />
 
         <LinearLayout
-            android:id="@+id/profileClickLayout"
+            android:id="@+id/userInfoLayout"
             android:layout_width="match_parent"
             android:layout_height="@dimen/card_name_height"
             android:background="#aaaaaaaa"
@@ -43,8 +43,7 @@
             android:textSize="27sp"
             android:textColor="@color/white"
             android:textStyle="bold"
-            android:gravity="bottom|left"
-            android:text="Test"/>
+            android:gravity="bottom|left"/>
 
     </androidx.cardview.widget.CardView>
 </LinearLayout>

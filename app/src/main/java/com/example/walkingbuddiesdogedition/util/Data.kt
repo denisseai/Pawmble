@@ -19,3 +19,9 @@ data class Chat(
     val name: String? = "",
     val imageUrl: String? = ""
 )
+
+data class Message(
+    val sentBy: String? = null,
+    val message: String? = null,
+    val time: String? = null
+)
