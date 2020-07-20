@@ -63,7 +63,6 @@ class SwipeFragment : Fragment() {
         })
 
         cardsAdapter = context?.let { CardsAdapter(it, R.layout.item, rowItems) }
-        //cardsAdapter = CardsAdapter(context, R.layout.item, rowItems)
 
         frame.adapter = cardsAdapter
         frame.setFlingListener(object : SwipeFlingAdapterView.onFlingListener {

@@ -2,10 +2,10 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_margin="4dp"
-    android:gravity="left"
-    android:layout_gravity="left">
+    android:gravity="start"
+    android:layout_gravity="start">
 
     <TextView
         android:id="@+id/messageTV"
@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:padding="4dp"
         android:textColor="@color/white"
-        android:gravity="left|center_vertical"
+        android:gravity="start"
         android:background="@drawable/chat_other_message_bg_round"
         style="@style/chatBubble"/>
 

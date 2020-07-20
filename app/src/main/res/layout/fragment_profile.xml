@@ -235,7 +235,7 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="5dp"
-                android:layout_marginEnd="54dp"
+                android:layout_marginEnd="46dp"
                 android:layout_marginRight="54dp"
                 android:layout_toEndOf="@+id/applyButton"
                 android:layout_toRightOf="@+id/applyButton"

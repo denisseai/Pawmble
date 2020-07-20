@@ -11,7 +11,7 @@
     <string name="let_s_find_you_a_walking_buddy">Let\'s find you a walking buddy!</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hint_name"> Pet\'s Name</string>
-    <string name="hint_age">Quirks and Personality</string>
+    <string name="hint_age">Something fun about me is...</string>
     <string name="hint_gender">"I am a"</string>
     <string name="hint_male">Male</string>
     <string name="hint_female">Female</string>
@@ -26,7 +26,7 @@
     <string name="error_profile_incomplete">Please complete your profile</string>
     <string name="boop_the_snoot">Boop the snoot</string>
     <string name="no_available_doggos">No available doggos</string>
-    <string name="send_button_text">Sent</string>
+    <string name="send_button_text">SEND</string>
     <string name="hint_message">Get your human to start this chat</string>
     <string name="dislike_icon">dislike icon</string>
     <string name="like_icon">like icon</string>

@@ -20,13 +20,6 @@ class MessagesAdapter(private var messages: ArrayList<Message>, val userId: Stri
         messages.add(message)
         notifyDataSetChanged()
     }
-
-    class MessageViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
-        fun bind(message: Message) {
-            view.findViewById<TextView>(R.id.messageTV).text = message.message
-        }
-    }
-
     override fun onCreateViewHolder(parent: ViewGroup, itemViewType: Int): MessageViewHolder {
         if(itemViewType == MESSAGE_CURRENT_USER) {
             return MessageViewHolder(
@@ -50,6 +43,12 @@ class MessagesAdapter(private var messages: ArrayList<Message>, val userId: Stri
             return MESSAGE_CURRENT_USER
         } else {
             return MESSAGE_OTHER_USER
+        }
+    }
+
+    class MessageViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
+        fun bind(message: Message) {
+            view.findViewById<TextView>(R.id.messageTV).text = message.message
         }
     }
 }

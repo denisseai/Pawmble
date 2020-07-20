@@ -31,49 +31,45 @@
             android:id="@+id/topNameTV"
             android:layout_width="match_parent"
             android:layout_height="@dimen/navigation_height"
-            android:gravity="bottom"
-            android:paddingStart="4dp"
+            android:gravity="center_vertical"
             android:paddingLeft="4dp"
-            android:textSize="20sp"
-            tools:ignore="RtlSymmetry" />
+            android:textSize="20sp"/>
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/messagesRV"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/messageET"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/navigationLayout" />
 
     <Button
         android:id="@+id/sendButton"
-        style="@style/sendButton"
         android:layout_width="100dp"
         android:layout_height="75dp"
         android:layout_margin="4dp"
-        android:background="#48009688"
         android:onClick="onSend"
         android:text="@string/send_button_text"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/chat_box_bg_rounded"
+        android:backgroundTint="@color/green"/>
 
     <EditText
         android:id="@+id/messageET"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:minHeight="75dp"
-        android:maxHeight="150dp"
         android:layout_margin="4dp"
-        android:padding="4dp"
         android:gravity="center_vertical"
         android:background="@drawable/chat_box_bg_rounded"
+        android:maxHeight="150dp"
+        android:minHeight="75dp"
+        android:padding="4dp"
         android:hint="@string/hint_message"
         app:layout_constraintEnd_toStartOf="@+id/sendButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

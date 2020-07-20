@@ -48,7 +48,7 @@ class ChatActivity : AppCompatActivity() {
             if(message != null) {
                 messagesAdapter.addMessage(message)
                 messagesRV.post {
-                    messagesRV.smoothScrollToPosition(messagesAdapter.itemCount -1)
+                    messagesRV.smoothScrollToPosition(messagesAdapter.itemCount - 1)
                 }
             }
         }
@@ -94,13 +94,13 @@ class ChatActivity : AppCompatActivity() {
                         Glide.with(this@ChatActivity)
                             .load(user?.imageUrl)
                             .into(topPhotoIV)
+
                         topPhotoIV.setOnClickListener {
                             startActivity(UserInfoActivity.newIntent(this@ChatActivity, otherUserId))
                         }
                     }
                 }
             }
-
         })
     }
 
@@ -127,7 +127,6 @@ class ChatActivity : AppCompatActivity() {
             intent.putExtra(PARAM_IMAGE_URL, imageUrl)
             intent.putExtra(PARAM_OTHER_USER_ID, otherUserId)
             return intent
-
         }
     }
 }
