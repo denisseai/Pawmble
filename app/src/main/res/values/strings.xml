@@ -2,6 +2,7 @@
     <string name="app_name">WalkingBuddiesDogEdition</string>
     <string name="log_in">Log In</string>
     <string name="sign_up">Sign Up</string>
+    <string name="no_member">Not a member yet?</string>
     <string name="walking_buddies">Walking Buddies</string>
     <string name="app_logo">app logo</string>
     <string name="pawmble">Pawmble</string>
@@ -25,13 +26,13 @@
     <string name="default_profile_pic_description">default profile pic</string>
     <string name="error_profile_incomplete">Please complete your profile</string>
     <string name="boop_the_snoot">Boop the snoot</string>
-    <string name="no_available_doggos">No available doggos</string>
+    <string name="no_available_doggos">Nothing to smell here - go to messages or try again later</string>
     <string name="send_button_text">SEND</string>
     <string name="hint_message">Get your human to start this chat</string>
     <string name="dislike_icon">dislike icon</string>
     <string name="like_icon">like icon</string>
     <string name="dog_s_name">Dog\'s name</string>
-    <string name="your_match_is">Your Match is…</string>
+    <string name="your_match_is">wants to be your walking buddy…</string>
     <string name="boop_the_snoot_to_chat">boop the snoot to chat</string>
     <string name="picture_of_matched_dog">picture of matched dog</string>
     <string name="profile_pic_in_chat_page">profile pic in chat page</string>

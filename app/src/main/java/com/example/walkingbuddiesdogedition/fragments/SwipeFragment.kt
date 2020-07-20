@@ -2,6 +2,7 @@ package com.example.walkingbuddiesdogedition.fragments
 
 import android.content.Context
 import android.os.Bundle
+import android.view.Gravity
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -73,7 +74,8 @@ class SwipeFragment : Fragment() {
 
             override fun onLeftCardExit(p0: Any?) {
                 val user = p0 as User
-                userDatabase.child(user.uid.toString()).child(DATA_SWIPE_LEFT).child(userId).setValue(true)
+                userDatabase.child(user.uid.toString()).child(DATA_SWIPE_LEFT).child(userId)
+                    .setValue(true)
             }
 
             override fun onRightCardExit(p0: Any?) {
@@ -85,16 +87,25 @@ class SwipeFragment : Fragment() {
                         .addListenerForSingleValueEvent(object : ValueEventListener {
                             override fun onCancelled(error: DatabaseError) {
                             }
+
                             override fun onDataChange(snapshot: DataSnapshot) {
                                 if (snapshot.hasChild(selectedUserId)) {
-                                    Toast.makeText(context, "BARK! we have a match!", Toast.LENGTH_LONG).show()
+
+                                    val text = "BARK! we have a match! Go to your Messages to start chatting"
+                                    val duration = Toast.LENGTH_LONG
+                                    val toast = Toast.makeText(context, text, duration)
+                                    toast.show()
+                                    toast.setGravity(Gravity.CENTER_HORIZONTAL or Gravity.CENTER, 0, 300)
 
                                     val chatKey = chatDatabase.push().key
 
                                     if (chatKey != null) {
-                                        userDatabase.child(userId).child(DATA_SWIPE_RIGHT).child(selectedUserId).removeValue()
-                                        userDatabase.child(userId).child(DATA_MATCHES).child(selectedUserId).setValue(chatKey)
-                                        userDatabase.child(selectedUserId).child(DATA_MATCHES).child(userId).setValue(chatKey)
+                                        userDatabase.child(userId).child(DATA_SWIPE_RIGHT)
+                                            .child(selectedUserId).removeValue()
+                                        userDatabase.child(userId).child(DATA_MATCHES)
+                                            .child(selectedUserId).setValue(chatKey)
+                                        userDatabase.child(selectedUserId).child(DATA_MATCHES)
+                                            .child(userId).setValue(chatKey)
 
                                         chatDatabase.child(chatKey).child(userId).child(DATA_NAME)
                                             .setValue(userName)
@@ -123,7 +134,7 @@ class SwipeFragment : Fragment() {
             }
         })
 
-        frame.setOnItemClickListener { position, data ->}
+        frame.setOnItemClickListener { position, data -> }
 
         likeButton.setOnClickListener {
             if (rowItems.isNotEmpty()) {
@@ -144,6 +155,7 @@ class SwipeFragment : Fragment() {
         cardsQuery.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onCancelled(error: DatabaseError) {
             }
+
             override fun onDataChange(snapshot: DataSnapshot) {
                 snapshot.children.forEach { child ->
                     val user = child.getValue(User::class.java)
