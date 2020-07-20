@@ -11,6 +11,240 @@
         android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/profileLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:paddingTop="8dp"
+            android:paddingBottom="0dp">
+
+            <TextView
+                android:id="@+id/boop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/boop_the_snoot" />
+
+            <ImageView
+                android:id="@+id/photoIV"
+                android:layout_width="299dp"
+                android:layout_height="207dp"
+                android:layout_centerHorizontal="true"
+                android:contentDescription="@string/default_profile_pic_description"
+                android:paddingBottom="8dp"
+                android:src="@drawable/default_pic" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/nameTIL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/photoIV"
+                android:layout_marginTop="40dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/nameET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_name" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/emailTIL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/nameTIL"
+                android:paddingBottom="8dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/emailET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_email" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ageTIL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/emailTIL"
+                android:paddingBottom="8dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ageET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_age" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:id="@+id/radio1Layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ageTIL"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/genderTV"
+                    android:layout_width="30dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:padding="8dp"
+                    android:text="@string/hint_gender" />
+
+                <RadioGroup
+                    android:id="@+id/radioGrp1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="start"
+                    android:orientation="horizontal"
+                    android:paddingBottom="8dp">
+
+                    <RadioButton
+                        android:id="@+id/radioMale1"
+                        android:layout_width="78dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/hint_male"
+                        app:layout_anchor="@+id/nestedScrollView"
+                        app:layout_anchorGravity="center" />
+
+                    <RadioButton
+                        android:id="@+id/radioFemale1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/hint_female" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/radio2Layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/radio1Layout"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="211dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:padding="8dp"
+                    android:text="@string/hint_size" />
+
+                <RadioGroup
+                    android:id="@+id/radioGrp2"
+                    android:layout_width="373dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:gravity="start"
+                    android:orientation="horizontal"
+                    android:paddingBottom="8dp">
+
+                    <RadioButton
+                        android:id="@+id/radioSize1"
+                        android:layout_width="78dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/hint_size_s" />
+
+                    <RadioButton
+                        android:id="@+id/radioSize2"
+                        android:layout_width="93dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/hint_size_m" />
+
+                    <RadioButton
+                        android:id="@+id/radioSize3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/hint_size_l" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/radio3Layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/radio2Layout"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/preferredSizeTV"
+                    android:layout_width="201dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:padding="8dp"
+                    android:text="@string/hint_preferred_size" />
+
+                <RadioGroup
+                    android:id="@+id/radioGrp3"
+                    android:layout_width="353dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:gravity="start"
+                    android:orientation="horizontal"
+                    android:paddingBottom="8dp">
+
+                    <RadioButton
+                        android:id="@+id/radioPreferredSize1"
+                        android:layout_width="78dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/hint_size_s" />
+
+                    <RadioButton
+                        android:id="@+id/radioPreferredSize2"
+                        android:layout_width="93dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/hint_size_m" />
+
+                    <RadioButton
+                        android:id="@+id/radioPreferredSize3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/hint_size_l" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/applyButton"
+                style="@style/StandardButton"
+                android:layout_width="148dp"
+                android:layout_height="37dp"
+                android:layout_below="@+id/radio3Layout"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginStart="46dp"
+                android:layout_marginLeft="46dp"
+                android:layout_marginTop="5dp"
+                android:fontFamily="casual"
+                android:text="@string/apply"
+                android:textColor="@color/colorOtherAccent"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/signoutButton"
+                style="@style/StandardButton"
+                android:layout_width="148dp"
+                android:layout_height="37dp"
+                android:layout_below="@+id/radio3Layout"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="54dp"
+                android:layout_marginRight="54dp"
+                android:layout_toEndOf="@+id/applyButton"
+                android:layout_toRightOf="@+id/applyButton"
+                android:fontFamily="casual"
+                android:text="@string/sign_out"
+                android:textColor="@color/colorAccent"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
     </androidx.core.widget.NestedScrollView>
 
     <LinearLayout
@@ -26,232 +260,5 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </LinearLayout>
-
-    <RelativeLayout
-        android:id="@+id/profileLayout"
-        android:layout_width="392dp"
-        android:layout_height="644dp"
-        android:gravity="center_horizontal"
-        android:paddingTop="16dp"
-        android:paddingBottom="16dp"
-        app:layout_anchor="@+id/nestedScrollView"
-        app:layout_anchorGravity="center">
-
-        <TextView
-            android:id="@+id/boop"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="@string/boop_the_snoot" />
-
-        <ImageView
-            android:id="@+id/photoIV"
-            android:layout_width="289dp"
-            android:layout_height="137dp"
-            android:layout_centerHorizontal="true"
-            android:contentDescription="@string/default_profile_pic_description"
-            android:paddingBottom="8dp"
-            android:src="@drawable/default_pic" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/nameTIL"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/photoIV"
-            android:layout_marginTop="0dp">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/nameET"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/hint_name" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/emailTIL"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/nameTIL"
-            android:paddingBottom="8dp">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/emailET"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/hint_email" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/ageTIL"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/emailTIL"
-            android:paddingBottom="8dp">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/ageET"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/hint_age" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <LinearLayout
-            android:id="@+id/radio1Layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/ageTIL"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/genderTV"
-                android:layout_width="21dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:padding="8dp"
-                android:text="@string/hint_gender" />
-
-            <RadioGroup
-                android:id="@+id/radioGrp1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:gravity="start"
-                android:orientation="horizontal"
-                android:paddingBottom="8dp">
-
-                <RadioButton
-                    android:id="@+id/radioMale1"
-                    android:layout_width="78dp"
-                    android:layout_height="match_parent"
-                    android:text="@string/hint_male"
-                    app:layout_anchor="@+id/nestedScrollView"
-                    app:layout_anchorGravity="center" />
-
-                <RadioButton
-                    android:id="@+id/radioFemale1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="@string/hint_female" />
-
-
-            </RadioGroup>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/radio2Layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/radio1Layout"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="211dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:padding="8dp"
-                android:text="@string/hint_size" />
-
-            <RadioGroup
-                android:id="@+id/radioGrp2"
-                android:layout_width="373dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:gravity="start"
-                android:orientation="horizontal"
-                android:paddingBottom="8dp">
-
-                <RadioButton
-                    android:id="@+id/radioSize1"
-                    android:layout_width="78dp"
-                    android:layout_height="match_parent"
-                    android:text="@string/hint_size_s" />
-
-                <RadioButton
-                    android:id="@+id/radioSize2"
-                    android:layout_width="93dp"
-                    android:layout_height="match_parent"
-                    android:text="@string/hint_size_m" />
-
-                <RadioButton
-                    android:id="@+id/radioSize3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="@string/hint_size_l" />
-            </RadioGroup>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/radio3Layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/radio2Layout"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/preferredSizeTV"
-                android:layout_width="201dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:padding="8dp"
-                android:text="@string/hint_preferred_size" />
-
-            <RadioGroup
-                android:id="@+id/radioGrp3"
-                android:layout_width="353dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:gravity="start"
-                android:orientation="horizontal"
-                android:paddingBottom="8dp">
-
-                <RadioButton
-                    android:id="@+id/radioPreferredSize1"
-                    android:layout_width="78dp"
-                    android:layout_height="match_parent"
-                    android:text="@string/hint_size_s" />
-
-                <RadioButton
-                    android:id="@+id/radioPreferredSize2"
-                    android:layout_width="93dp"
-                    android:layout_height="match_parent"
-                    android:text="@string/hint_size_m" />
-
-                <RadioButton
-                    android:id="@+id/radioPreferredSize3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="@string/hint_size_l" />
-            </RadioGroup>
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/applyButton"
-            style="@style/StandardButton"
-            android:layout_width="163dp"
-            android:layout_height="38dp"
-            android:layout_below="@+id/radio3Layout"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:fontFamily="casual"
-            android:text="@string/apply"
-            android:textColor="@color/colorOtherAccent"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/signoutButton"
-            style="@style/StandardButton"
-            android:layout_width="163dp"
-            android:layout_height="37dp"
-            android:layout_below="@+id/applyButton"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="11dp"
-            android:fontFamily="casual"
-            android:text="@string/sign_out"
-            android:textColor="@color/colorAccent"
-            android:textStyle="bold" />
-    </RelativeLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
