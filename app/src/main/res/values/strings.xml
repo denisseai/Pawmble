@@ -2,7 +2,7 @@
     <string name="app_name">WalkingBuddiesDogEdition</string>
     <string name="log_in">Log In</string>
     <string name="sign_up">Sign Up</string>
-    <string name="no_member">Not a member yet?</string>
+    <string name="no_member">Not a pawmbler?</string>
     <string name="walking_buddies">Walking Buddies</string>
     <string name="app_logo">app logo</string>
     <string name="pawmble">Pawmble</string>
@@ -12,7 +12,7 @@
     <string name="let_s_find_you_a_walking_buddy">Let\'s find you a walking buddy!</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hint_name"> Pet\'s Name</string>
-    <string name="hint_age">Something fun about me is...</string>
+    <string name="hint_age">Something fun about me is…</string>
     <string name="hint_gender">"I am a"</string>
     <string name="hint_male">Male</string>
     <string name="hint_female">Female</string>
