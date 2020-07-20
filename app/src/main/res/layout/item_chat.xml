@@ -29,13 +29,15 @@
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/chatPictureIV"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:fontFamily="casual"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="@string/your_match_is"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,10 +49,10 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="19dp"
-        android:layout_marginTop="124dp"
+        android:layout_marginTop="108dp"
         android:text="@string/boop_the_snoot_to_chat"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.788"
+        app:layout_constraintHorizontal_bias="0.796"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

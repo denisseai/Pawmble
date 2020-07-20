@@ -30,7 +30,7 @@
     <RelativeLayout
         android:id="@+id/profileLayout"
         android:layout_width="392dp"
-        android:layout_height="639dp"
+        android:layout_height="644dp"
         android:gravity="center_horizontal"
         android:paddingTop="16dp"
         android:paddingBottom="16dp"
@@ -46,8 +46,8 @@
 
         <ImageView
             android:id="@+id/photoIV"
-            android:layout_width="247dp"
-            android:layout_height="179dp"
+            android:layout_width="289dp"
+            android:layout_height="137dp"
             android:layout_centerHorizontal="true"
             android:contentDescription="@string/default_profile_pic_description"
             android:paddingBottom="8dp"
@@ -105,7 +105,7 @@
 
             <TextView
                 android:id="@+id/genderTV"
-                android:layout_width="18dp"
+                android:layout_width="21dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:padding="8dp"
@@ -121,18 +121,20 @@
                 android:paddingBottom="8dp">
 
                 <RadioButton
-                    android:id="@+id/radioFemale1"
-                    android:layout_width="119dp"
-                    android:layout_height="match_parent"
-                    android:text="@string/hint_female" />
-
-                <RadioButton
                     android:id="@+id/radioMale1"
-                    android:layout_width="119dp"
+                    android:layout_width="78dp"
                     android:layout_height="match_parent"
                     android:text="@string/hint_male"
                     app:layout_anchor="@+id/nestedScrollView"
                     app:layout_anchorGravity="center" />
+
+                <RadioButton
+                    android:id="@+id/radioFemale1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/hint_female" />
+
+
             </RadioGroup>
         </LinearLayout>
 
@@ -145,7 +147,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="203dp"
+                android:layout_width="211dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:padding="8dp"
@@ -174,7 +176,7 @@
 
                 <RadioButton
                     android:id="@+id/radioSize3"
-                    android:layout_width="78dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:text="@string/hint_size_l" />
             </RadioGroup>
@@ -190,7 +192,7 @@
 
             <TextView
                 android:id="@+id/preferredSizeTV"
-                android:layout_width="191dp"
+                android:layout_width="201dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:padding="8dp"
@@ -219,7 +221,7 @@
 
                 <RadioButton
                     android:id="@+id/radioPreferredSize3"
-                    android:layout_width="78dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:text="@string/hint_size_l" />
             </RadioGroup>
@@ -233,7 +235,10 @@
             android:layout_below="@+id/radio3Layout"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
-            android:text="@string/apply" />
+            android:fontFamily="casual"
+            android:text="@string/apply"
+            android:textColor="@color/colorOtherAccent"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/signoutButton"
@@ -243,7 +248,10 @@
             android:layout_below="@+id/applyButton"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="11dp"
-            android:text="@string/sign_out" />
+            android:fontFamily="casual"
+            android:text="@string/sign_out"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold" />
     </RelativeLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

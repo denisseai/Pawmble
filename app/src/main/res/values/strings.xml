@@ -19,7 +19,7 @@
     <string name="hint_size_s">Small</string>
     <string name="hint_size_m">Medium</string>
     <string name="hint_size_l">Large</string>
-    <string name="hint_preferred_size">Walking buddy size</string>
+    <string name="hint_preferred_size">Preferred buddy size</string>
     <string name="sign_out">Sign out</string>
     <string name="apply">Submit</string>
     <string name="default_profile_pic_description">default profile pic</string>
