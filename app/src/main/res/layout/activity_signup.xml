@@ -26,7 +26,7 @@
         style="@style/StandardButton"
         android:layout_width="@dimen/standard_width"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="284dp"
+        android:layout_marginBottom="250dp"
         android:fontFamily="casual"
         android:onClick="onSignup"
         android:text="@string/sign_up"

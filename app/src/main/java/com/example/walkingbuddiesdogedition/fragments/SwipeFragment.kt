@@ -87,7 +87,7 @@ class SwipeFragment : Fragment() {
                             }
                             override fun onDataChange(snapshot: DataSnapshot) {
                                 if (snapshot.hasChild(selectedUserId)) {
-                                    Toast.makeText(context, "BARK! we have a match!", Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(context, "BARK! we have a match!", Toast.LENGTH_LONG).show()
 
                                     val chatKey = chatDatabase.push().key
 
