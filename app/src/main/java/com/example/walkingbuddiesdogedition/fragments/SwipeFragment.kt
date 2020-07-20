@@ -138,7 +138,7 @@ class SwipeFragment : Fragment() {
     }
 
     fun populateItems() {
-        noUsersLayout.visibility = View.GONE
+        noUsersLayout.visibility = View.VISIBLE
         progressLayout.visibility = View.VISIBLE
         val cardsQuery = userDatabase.orderByChild(DATA_SIZE).equalTo(preferredSize)
         cardsQuery.addListenerForSingleValueEvent(object : ValueEventListener {
