@@ -1,12 +1,17 @@
 # Pawmble
-#### Capstone Project - Denisse A - Ada Developers' Academy
+
+#### C13 Capstone Project - Denisse A - Time Classroom
+
+This is the repository for Pawmble - an Ada Developers' Academy capstone project. The project was built using the tech stack - Android Studio, Firebase database, Kotlin and Firebase authentication. Please follow the links to find project information and installation instructions.
+
 
 ## Table of Contents
-*
-*
-*
+* [Introduction](#introduction)
+* [Android Studio Mobile App](#android-studio-mobile-app)
+* [Wireframes and Trello] (#links)
+* [Screenshots] (#screenshots)
 
-## Introduction and Technologies
+## Introduction
 
 **The problem**: Keeping your dog and yourself physically and mentally healthy by going on walks with other dog owners.
 
@@ -19,19 +24,19 @@
 *
 *
 
-### Links
+## Links
 * [Wire frame](https://docs.google.com/presentation/d/1pAzuexPu6B2rhK_sQ3a6et7K8SsEXZc_v6DU3uvi7Wg/edit?usp=sharing)
 * [Trello Board](https://trello.com/b/AnDLvDsb/capstone)
 
 ### Installation Instructions
 1. Clone Repo
-2. Download Android Studio
-3. Create Firebase Account
+2. Download Android Studio use API 27 with a min SDK of 16
+3. Create Firebase Account for database storage and authentication
 
-### Screenshots
+## Screenshots
 
 ![SignIn](./images/login.gif)  ![SignUp](./images/signup.gif)  ![Chat](./images/chat.gif) 
-#### --Sign Up-------------------------Sign In / Swipe----------------------Chat-- 
+#### --Login-------------------------Sign Up / Swipe----------------------Chat-- 
 
 
 
