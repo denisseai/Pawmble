@@ -33,7 +33,7 @@ class UserInfoActivity : AppCompatActivity() {
                     val user = snapshot.getValue(User::class.java)
                     userInfoName.text = user?.name
                     userInfoAge.text = user?.age
-                    //userInfoSize.text = user?.size
+                    userInfoSize.text = user?.size
                     if(user?.imageUrl != null) {
                         Glide.with(this@UserInfoActivity)
                             .load(user.imageUrl)

@@ -36,4 +36,6 @@
     <string name="boop_the_snoot_to_chat">boop the snoot to chat</string>
     <string name="picture_of_matched_dog">picture of matched dog</string>
     <string name="profile_pic_in_chat_page">profile pic in chat page</string>
+    <string name="my_size_is">My size is :</string>
+    <string name="abark_me">Abark me:</string>
 </resources>
