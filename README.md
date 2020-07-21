@@ -30,11 +30,11 @@
 
 ### Screenshots
 #### Sign In / Sign Up
-![SignIn](./login.gif)
-![SignUp](./signup.gif)
+![SignIn](./images/login.gif)
+![SignUp](./images/signup.gif)
 
 #### Chat
-![Chat](./chat.gif)
+![Chat](./images/chat.gif)
 
 #### User Info
-![User Info](./userInfo.gif)
+![User Info](./images/userInfo.gif)
