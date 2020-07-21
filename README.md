@@ -33,7 +33,5 @@
 ![SignIn](./images/login.gif) ![SignUp](./images/signup.gif)
 
 #### Chat 
-![Chat](./images/chat.gif) 
+![Chat](./images/chatSmall.gif) 
 
-#### User Info
-![User Info](./images/userInfo.gif)
