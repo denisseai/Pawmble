@@ -21,8 +21,8 @@ This is the repository for Pawmble - an Ada Developers' Academy capstone project
 ## Android Studio Mobile App
 
 ### Use cases
-*
-*
+* This app allows users to find a walking buddy based on the dog's characteristics
+* The user is able to chat with other dog owners that wish to go on doggie walks with them 
 
 ## Links
 * [Wire frame](https://docs.google.com/presentation/d/1pAzuexPu6B2rhK_sQ3a6et7K8SsEXZc_v6DU3uvi7Wg/edit?usp=sharing)
