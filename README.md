@@ -29,9 +29,12 @@
 3. Create Firebase Account
 
 ### Screenshots
-#### Sign In / Sign Up
-![SignIn](./images/login.gif) ![SignUp](./images/signup.gif)
+#### Sign In
+![SignIn](./images/login.gif) 
+
+#### Sign In
+![SignUp](./images/signup.gif)
 
 #### Chat 
-![Chat](./images/chatSmall.gif) 
+![Chat](./images/chat.gif) 
 
