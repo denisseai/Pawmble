@@ -37,4 +37,4 @@
 ![Chat](./chat.gif)
 
 #### User Info
-![User Info](./userinfo.gif)
+![User Info](./userInfo.gif)
