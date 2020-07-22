@@ -16,7 +16,7 @@ This is the repository for Pawmble - an Ada Developers' Academy capstone project
 **The problem**: Keeping your dog and yourself physically and mentally healthy by going on walks with other dog owners.
 
 **The solution**: The app Pawmble will help find your next walking buddy (dog owner included).
-  * [Video Demo]()
+  * [Video Demo](https://drive.google.com/file/d/1kcVj8NrdjEnHtLNndATUX4ZCBUwwUaml/view?usp=sharing)
 
 ## Android Studio Mobile App
 
@@ -35,8 +35,8 @@ This is the repository for Pawmble - an Ada Developers' Academy capstone project
 
 ### Installation Instructions
 1. Clone Repo
-2. Download Android Studio use API 27 with a min SDK of 16
-3. Create Firebase Account for database storage and authentication
+2. Download [Android Studio](https://developer.android.com/studio?hl=es) use API 27 with a min SDK of 16
+3. Create [Firebase Account](https://firebase.google.com/) for database storage and authentication
 
 
 
