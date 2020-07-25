@@ -8,6 +8,8 @@ This is the repository for Pawmble - an Ada Developers' Academy capstone project
 ## Table of Contents
 * [Introduction](#introduction)
 * [Android Studio Mobile App](#android-studio-mobile-app)
+* [Video Demo](https://www.youtube.com/watch?v=UhsWZCaycJc&feature=youtu.be)
+* [Screenshots](#screenshots)
 * [Wireframes and Trello](#links)
 * [Screenshots](#screenshots)
 
@@ -24,14 +26,13 @@ This is the repository for Pawmble - an Ada Developers' Academy capstone project
 * This app allows users to find a walking buddy based on your dog's preference regarding the other dog's size
 * The user is able to organize a walk via chat with other dog owners only if both have liked their dog's profile
 
-## Links
-* [Wire frame](https://docs.google.com/presentation/d/1pAzuexPu6B2rhK_sQ3a6et7K8SsEXZc_v6DU3uvi7Wg/edit?usp=sharing)
-* [Trello Board](https://trello.com/b/AnDLvDsb/capstone)
-
 ## Screenshots
 #### Emulator used Nexus 6P with API 27
 ![SignIn](./images/login.gif)  ![SignUp](./images/signup.gif)  ![Chat](./images/chat.gif) 
 #### ------------Login------------------Sign Up/Swipe-------------------------Chat
+## Links
+* [Wire frame](https://docs.google.com/presentation/d/1pAzuexPu6B2rhK_sQ3a6et7K8SsEXZc_v6DU3uvi7Wg/edit?usp=sharing)
+* [Trello Board](https://trello.com/b/AnDLvDsb/capstone)
 
 ### Installation Instructions
 1. Clone Repo
