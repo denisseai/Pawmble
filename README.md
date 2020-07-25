@@ -11,7 +11,6 @@ This is the repository for Pawmble - an Ada Developers' Academy capstone project
 * [Video Demo](https://www.youtube.com/watch?v=UhsWZCaycJc&feature=youtu.be)
 * [Screenshots](#screenshots)
 * [Wireframes and Trello](#links)
-* [Screenshots](#screenshots)
 
 ## Introduction
 
