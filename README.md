@@ -15,13 +15,13 @@ This is the repository for Pawmble - an Ada Developers' Academy capstone project
 
 **The problem**: Keeping your dog and yourself physically and mentally healthy by going on walks with other dog owners.
 
-**The solution**: The app Pawmble will help find your next walking buddy (dog owner included).
+**The solution**: The app Pawmble will help find your next walking buddy (dog owner included) based your preferences.
   * [Video Demo](https://www.youtube.com/watch?v=UhsWZCaycJc&feature=youtu.be)
 
 ## Android Studio Mobile App
 
 ### Use cases
-* This app allows users to find a walking buddy based on the dog's preferences and other dog's characteristics
+* This app allows users to find a walking buddy based on your dog's preference regarding the other dog's size
 * The user is able to organize a walk via chat with other dog owners only if both have liked their dog's profile
 
 ## Links
