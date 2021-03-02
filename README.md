@@ -1,5 +1,14 @@
 # Pawmble
 
+## Screenshots
+#### Emulator used Nexus 6P with API 27
+![SignIn](./images/login.gif)  ![SignUp](./images/signup.gif)  ![Chat](./images/chat.gif) 
+#### ------------Login------------------Sign Up/Swipe-------------------------Chat
+## Links
+* [Wire frame](https://docs.google.com/presentation/d/1pAzuexPu6B2rhK_sQ3a6et7K8SsEXZc_v6DU3uvi7Wg/edit?usp=sharing)
+* [Trello Board](https://trello.com/b/AnDLvDsb/capstone)
+
+
 #### C13 Capstone Project - Denisse A - Time Classroom
 
 This is the repository for Pawmble - an Ada Developers' Academy capstone project. The project was built using the tech stack - Android Studio, Firebase database, Kotlin and Firebase authentication. Please follow the links to find project information and installation instructions.
@@ -24,14 +33,6 @@ This is the repository for Pawmble - an Ada Developers' Academy capstone project
 ### Use cases
 * This app allows users to find a walking buddy based on your dog's preference regarding the other dog's size
 * The user is able to organize a walk via chat with other dog owners only if both have liked their dog's profile
-
-## Screenshots
-#### Emulator used Nexus 6P with API 27
-![SignIn](./images/login.gif)  ![SignUp](./images/signup.gif)  ![Chat](./images/chat.gif) 
-#### ------------Login------------------Sign Up/Swipe-------------------------Chat
-## Links
-* [Wire frame](https://docs.google.com/presentation/d/1pAzuexPu6B2rhK_sQ3a6et7K8SsEXZc_v6DU3uvi7Wg/edit?usp=sharing)
-* [Trello Board](https://trello.com/b/AnDLvDsb/capstone)
 
 ### Installation Instructions
 1. Clone Repo
